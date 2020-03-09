@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  client:
+    image: frp:latest
+    network_mode: host
+    volumes:
+      - ./conf/frpc.ini:/frp/conf.ini
+    restart: unless-stopped
+    working_dir: /frp
+    command: "./frpc -c conf.ini"
